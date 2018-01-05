@@ -1,7 +1,9 @@
-package elsaghier.example.com.appssquare;
+package elsaghier.example.com.appssquare.First_Task;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import elsaghier.example.com.appssquare.R;
 
 public class FirstTask extends AppCompatActivity {
 
