@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AppsSquare</string>
+    <string name="name_hint">Name</string>
+    <string name="password_hint">Password</string>
+    <string name="login_txt">Login</string>
+    <string name="logo_image">Logo Image</string>
 </resources>
