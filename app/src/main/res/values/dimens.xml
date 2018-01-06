@@ -5,4 +5,7 @@
     <dimen name="size_in_sp_18">18sp</dimen>
     <dimen name="size_in_dp_16">16dp</dimen>
     <dimen name="size_in_dp_96">96dp</dimen>
+    <dimen name="size_in_dp_4">4dp</dimen>
+    <dimen name="size_in_dp_2">2dp</dimen>
+    <dimen name="size_in_dp_32">32dp</dimen>
 </resources>
