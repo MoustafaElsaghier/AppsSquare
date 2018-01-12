@@ -20,4 +20,5 @@
     <string name="contact_us">Contact Us</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
+    <string name="icon_for_navigation_drawer_item">Icon For Navigation Drawer Item</string>
 </resources>
