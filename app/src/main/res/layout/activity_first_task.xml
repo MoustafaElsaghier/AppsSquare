@@ -49,11 +49,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/top_corners_et"
             android:hint="@string/name_hint"
-            android:inputType="text|textCapWords|textEmailAddress"
+            android:inputType="text|textCapWords"
             android:maxLength="20"
-            android:padding="@dimen/size_in_dp_16"
-            android:textColor="@android:color/white"
-            app:errorEnabled="true" />
+            android:padding="@dimen/size_in_dp_12"
+            android:textColor="@android:color/white" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -63,11 +62,9 @@
         android:layout_marginEnd="@dimen/size_in_dp_16"
         android:layout_marginStart="@dimen/size_in_dp_16"
         android:layout_marginTop="@dimen/size_in_dp_32"
-        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TIL_name"
-        app:passwordToggleEnabled="true">
+        app:layout_constraintTop_toBottomOf="@+id/TIL_name">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -76,7 +73,7 @@
             android:background="@drawable/bottom_corners_et"
             android:hint="@string/password_hint"
             android:inputType="textPassword"
-            android:padding="@dimen/size_in_dp_8"
+            android:padding="@dimen/size_in_dp_12"
             android:textColor="@android:color/white" />
     </android.support.design.widget.TextInputLayout>
 
