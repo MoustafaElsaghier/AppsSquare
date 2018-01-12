@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#AAA"
+    android:background="@drawable/gradient_bg"
     tools:context="elsaghier.example.com.appssquare.MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginEnd="@dimen/size_in_dp_8"
+        android:layout_marginStart="@dimen/size_in_dp_8"
+        android:layout_marginTop="@dimen/size_in_dp_24"
         android:text="@string/apps_square_tasks"
-
         android:textAlignment="center"
+
+        android:textColor="@android:color/white"
         android:textSize="@dimen/size_in_sp_24"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,8 +43,8 @@
         style="@style/mainActivity_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/second_task"
         android:onClick="btnClick"
+        android:text="@string/second_task"
         android:textSize="@dimen/size_in_sp_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
