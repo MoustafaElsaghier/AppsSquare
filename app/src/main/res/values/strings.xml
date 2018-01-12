@@ -4,4 +4,13 @@
     <string name="password_hint">Password</string>
     <string name="login_txt">Login</string>
     <string name="logo_image">Logo Image</string>
+    <string name="first_task">First Task</string>
+    <string name="apps_square_tasks">Apps Square Tasks</string>
+    <string name="second_task">Second Task</string>
+    <string name="title_activity_second_task">SecondTask</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
