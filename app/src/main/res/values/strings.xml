@@ -21,4 +21,12 @@
     <string name="home">Home</string>
     <string name="profile">Profile</string>
     <string name="icon_for_navigation_drawer_item">Icon For Navigation Drawer Item</string>
+
+    <!-- String Array for Navigation Drawer Items -->
+    <string-array name="navigationItems">
+        <item>Home</item>
+        <item>Profile</item>
+        <item>Contact Us</item>
+        <item>About Us</item>
+    </string-array>
 </resources>
