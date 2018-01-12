@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import elsaghier.example.com.appssquare.First_Task.FirstTask;
+import elsaghier.example.com.appssquare.Second_Task.SecondTask;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -14,4 +14,6 @@
 
     <string name="action_settings">Settings</string>
     <string name="validUserAndPass">Valid UserName and passwod</string>
+    <string name="myName">Moustafa Elsaghier</string>
+    <string name="myEmail">thedreamereng@gmail.com</string>
 </resources>
