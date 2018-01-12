@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="navigationDrawerIcons">
+        <item>@drawable/ic_menu_camera</item>
+        <item>@drawable/ic_menu_gallery</item>
+        <item>@drawable/ic_menu_slideshow</item>
+        <item>@drawable/ic_menu_manage</item>
+    </integer-array>
+</resources>
