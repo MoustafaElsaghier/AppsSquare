@@ -1,6 +1,6 @@
 package elsaghier.example.com.appssquare.Second_Task.Adapters;
 
-import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -22,14 +22,17 @@ import elsaghier.example.com.appssquare.Second_Task.Model.NavigationModel;
 
 public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.NavigationItemHolder> {
 
-    ArrayList<NavigationModel> data;
-    Context context;
+    private ArrayList<NavigationModel> data;
+    private AppCompatActivity activity;
+    private RecyclerView recyclerView;
+    int indexOfLastClickedItem = -1;
 
-    public NavigationAdapter(ArrayList<NavigationModel> data, Context context) {
+    public NavigationAdapter(ArrayList<NavigationModel> data, AppCompatActivity activity, RecyclerView recyclerView) {
         this.data = data;
-        this.context = context;
-
+        this.activity = activity;
+        this.recyclerView = recyclerView;
     }
+
 
     @Override
     public NavigationItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -41,6 +44,7 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Na
         return new NavigationItemHolder(v);
     }
 
+
     @Override
     public void onBindViewHolder(NavigationItemHolder holder, final int position) {
 
@@ -51,15 +55,23 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Na
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((AppCompatActivity) context).getSupportFragmentManager()
+
+                activity.getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.container, model.getFragment())
+                        .addToBackStack("Tag" + position)
                         .commit();
-                DrawerLayout drawer = ((AppCompatActivity) context).findViewById(R.id.drawer_layout);
+
+                // close Drawer if opened [ almost opened :D ]
+                DrawerLayout drawer = activity.findViewById(R.id.drawer_layout);
                 if (drawer.isDrawerOpen(GravityCompat.START)) {
                     drawer.closeDrawer(GravityCompat.START);
                 }
-
+                recyclerView.getChildAt(position).setBackgroundColor(Color.GRAY);
+                if (indexOfLastClickedItem != -1) {
+                    recyclerView.getChildAt(indexOfLastClickedItem).setBackgroundColor(Color.TRANSPARENT);
+                }
+                indexOfLastClickedItem = position;
             }
         });
 
