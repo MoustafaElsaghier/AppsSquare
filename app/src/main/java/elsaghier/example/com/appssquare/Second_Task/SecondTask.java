@@ -89,6 +89,7 @@ public class SecondTask extends AppCompatActivity {
     }
 
     // fill array of model
+    @SuppressWarnings("ResourceType")
     void fillDataModel() {
         loadData();
         models = new ArrayList<>();
