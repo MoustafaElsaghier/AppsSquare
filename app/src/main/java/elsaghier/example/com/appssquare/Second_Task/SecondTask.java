@@ -6,19 +6,39 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 import elsaghier.example.com.appssquare.R;
+import elsaghier.example.com.appssquare.Second_Task.Adapters.NavigationAdapter;
+import elsaghier.example.com.appssquare.Second_Task.Fragments.AboutUsFragment;
+import elsaghier.example.com.appssquare.Second_Task.Fragments.ContactUsFragment;
+import elsaghier.example.com.appssquare.Second_Task.Fragments.HomeFragment;
+import elsaghier.example.com.appssquare.Second_Task.Fragments.ProfileFragment;
+import elsaghier.example.com.appssquare.Second_Task.Model.NavigationModel;
 
 public class SecondTask extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    RecyclerView navRecycler;
+    NavigationAdapter navigationAdapter;
+    ArrayList<NavigationModel> models;
+    RecyclerView.LayoutManager layoutManager;
+    String[] tittles;
+    int[] iconsRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_task);
+        init();
+    }
+
+    private void init() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -30,7 +50,17 @@ public class SecondTask extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
+
+    // get resources from XML
+    void loadData() {
+        tittles = getResources().getStringArray(R.array.navigationItems);
+        iconsRes = getResources().getIntArray(R.array.navigationDrawerIcons);
+    }
+
+
 
     @Override
     public void onBackPressed() {
@@ -70,19 +100,19 @@ public class SecondTask extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
+//        if (id == R.id.nav_camera) {
+//            // Handle the camera action
+//        } else if (id == R.id.nav_gallery) {
+//
+//        } else if (id == R.id.nav_slideshow) {
+//
+//        } else if (id == R.id.nav_manage) {
+//
+//        } else if (id == R.id.nav_share) {
+//
+//        } else if (id == R.id.nav_send) {
+//
+//        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

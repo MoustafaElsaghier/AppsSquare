@@ -29,4 +29,7 @@
         <item>Contact Us</item>
         <item>About Us</item>
     </string-array>
+    <string name="title_activity_nooooooooooo">Nooooooooooo</string>
+    <string name="myName">Moustafa Elsaghier</string>
+    <string name="myEmail">thedreamereng@gmail.com</string>
 </resources>
