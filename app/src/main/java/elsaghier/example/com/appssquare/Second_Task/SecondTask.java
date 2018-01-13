@@ -60,7 +60,36 @@ public class SecondTask extends AppCompatActivity
         iconsRes = getResources().getIntArray(R.array.navigationDrawerIcons);
     }
 
+    // fill array of model
+    void fillDataModel() {
+        loadData();
+        models = new ArrayList<>();
+        NavigationModel model = new NavigationModel();
+        model.setTittle(tittles[0]);
+        model.setImageId(iconsRes[0]);
+        model.setFragment(new HomeFragment());
 
+        model = new NavigationModel();
+        model.setTittle(tittles[1]);
+        model.setImageId(iconsRes[1]);
+        model.setFragment(new ProfileFragment());
+
+        model = new NavigationModel();
+        model.setTittle(tittles[2]);
+        model.setImageId(iconsRes[2]);
+        model.setFragment(new ContactUsFragment());
+
+        model = new NavigationModel();
+        model.setTittle(tittles[3]);
+        model.setImageId(iconsRes[3]);
+        model.setFragment(new AboutUsFragment());
+
+    }
+
+    void initRecycler() {
+        fillDataModel();
+        navRecycler = findViewById(R.id.navRecycler);
+    }
 
     @Override
     public void onBackPressed() {
