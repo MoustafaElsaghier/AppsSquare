@@ -6,6 +6,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -50,7 +51,7 @@ public class SecondTask extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        initRecycler();
 
     }
 
@@ -86,9 +87,13 @@ public class SecondTask extends AppCompatActivity
 
     }
 
+    // init Recycler Adapter
     void initRecycler() {
         fillDataModel();
         navRecycler = findViewById(R.id.navRecycler);
+        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        navigationAdapter = new NavigationAdapter(models, this);
+        navRecycler.setAdapter(navigationAdapter);
     }
 
     @Override
