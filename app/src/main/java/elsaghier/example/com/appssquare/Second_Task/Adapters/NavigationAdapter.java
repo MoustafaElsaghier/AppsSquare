@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import elsaghier.example.com.appssquare.R;
 import elsaghier.example.com.appssquare.Second_Task.Model.NavigationModel;
+import elsaghier.example.com.appssquare.Second_Task.SecondTask;
 
 /**
  * Created by ELSaghier on 1/13/2018.
@@ -25,7 +26,7 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Na
     private ArrayList<NavigationModel> data;
     private AppCompatActivity activity;
     private RecyclerView recyclerView;
-    int indexOfLastClickedItem = -1;
+    private int indexOfLastClickedItem = -1;
 
     public NavigationAdapter(ArrayList<NavigationModel> data, AppCompatActivity activity, RecyclerView recyclerView) {
         this.data = data;
@@ -46,7 +47,7 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Na
 
 
     @Override
-    public void onBindViewHolder(NavigationItemHolder holder, final int position) {
+    public void onBindViewHolder(final NavigationItemHolder holder, int position) {
 
         final NavigationModel model = data.get(position);
 
@@ -55,23 +56,24 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Na
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int pos = holder.getAdapterPosition();
 
                 activity.getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.container, model.getFragment())
-                        .addToBackStack("Tag" + position)
+                        .addToBackStack("Tag" + pos)
                         .commit();
-
+                SecondTask.fragmentItem = model.getFragment();
                 // close Drawer if opened [ almost opened :D ]
                 DrawerLayout drawer = activity.findViewById(R.id.drawer_layout);
                 if (drawer.isDrawerOpen(GravityCompat.START)) {
                     drawer.closeDrawer(GravityCompat.START);
                 }
-                recyclerView.getChildAt(position).setBackgroundColor(Color.GRAY);
+                recyclerView.getChildAt(pos).setBackgroundColor(Color.GRAY);
                 if (indexOfLastClickedItem != -1) {
                     recyclerView.getChildAt(indexOfLastClickedItem).setBackgroundColor(Color.TRANSPARENT);
                 }
-                indexOfLastClickedItem = position;
+                indexOfLastClickedItem = pos;
             }
         });
 

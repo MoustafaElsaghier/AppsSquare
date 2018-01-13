@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -32,7 +33,8 @@ public class SecondTask extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     String[] tittles;
     TypedArray iconsRes;
-    Fragment fragment;
+
+    public static Fragment fragmentItem;
 
 
     @Override
@@ -40,10 +42,10 @@ public class SecondTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_task);
         FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
-        if (fragment == null)
+        if (fragmentItem == null)
             trans.replace(R.id.container, new HomeFragment());
         else
-            trans.replace(R.id.container, fragment);
+            trans.replace(R.id.container, fragmentItem);
         trans.commit();
         init();
     }
@@ -51,7 +53,6 @@ public class SecondTask extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        fragment = getTopFragment();
         System.out.println();
     }
 
@@ -129,12 +130,5 @@ public class SecondTask extends AppCompatActivity {
         navRecycler.setAdapter(navigationAdapter);
     }
 
-    public Fragment getTopFragment() {
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            return null;
-        }
-        String fragmentTag = getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName();
-        return getSupportFragmentManager().findFragmentByTag(fragmentTag);
-    }
 
 }
