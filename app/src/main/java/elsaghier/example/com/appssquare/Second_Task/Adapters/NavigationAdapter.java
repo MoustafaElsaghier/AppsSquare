@@ -1,6 +1,9 @@
 package elsaghier.example.com.appssquare.Second_Task.Adapters;
 
 import android.content.Context;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +28,7 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Na
     public NavigationAdapter(ArrayList<NavigationModel> data, Context context) {
         this.data = data;
         this.context = context;
+
     }
 
     @Override
@@ -38,15 +42,23 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Na
     }
 
     @Override
-    public void onBindViewHolder(NavigationItemHolder holder, int position) {
+    public void onBindViewHolder(NavigationItemHolder holder, final int position) {
 
-        NavigationModel model = data.get(position);
+        final NavigationModel model = data.get(position);
 
         holder.setItemIcon(model.getImageId());
         holder.setItemTittle(model.getTittle());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ((AppCompatActivity) context).getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, model.getFragment())
+                        .commit();
+                DrawerLayout drawer = ((AppCompatActivity) context).findViewById(R.id.drawer_layout);
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                }
 
             }
         });

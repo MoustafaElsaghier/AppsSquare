@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/container"
     android:layout_height="match_parent"
     tools:context="elsaghier.example.com.appssquare.Second_Task.SecondTask">
 
@@ -20,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/home_layout" />
+    <!--<include layout="@layout/home_layout" />-->
 
 
 </android.support.design.widget.CoordinatorLayout>
