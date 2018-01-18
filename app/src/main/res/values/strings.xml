@@ -33,4 +33,6 @@
     <string name="title_activity_map_task">Map</string>
     <string name="fourth_task">Fourth Task</string>
     <string name="third_task">Third Task</string>
+    <string name="reset">Reset</string>
+    <string name="draw_line">Draw Line</string>
 </resources>
