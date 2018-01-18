@@ -26,7 +26,6 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Na
     private ArrayList<NavigationModel> data;
     private AppCompatActivity activity;
     private RecyclerView recyclerView;
-    private int indexOfLastClickedItem = -1;
 
     public NavigationAdapter(ArrayList<NavigationModel> data, AppCompatActivity activity, RecyclerView recyclerView) {
         this.data = data;
@@ -34,6 +33,7 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Na
         this.recyclerView = recyclerView;
     }
 
+    private int indexOfLastClickedItem;
 
     @Override
     public NavigationItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -63,7 +63,6 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Na
                         .replace(R.id.container, model.getFragment())
                         .addToBackStack("Tag" + pos)
                         .commit();
-                SecondTask.fragmentItem = model.getFragment();
                 // close Drawer if opened [ almost opened :D ]
                 DrawerLayout drawer = activity.findViewById(R.id.drawer_layout);
                 if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -74,6 +73,7 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Na
                     recyclerView.getChildAt(indexOfLastClickedItem).setBackgroundColor(Color.TRANSPARENT);
                 }
                 indexOfLastClickedItem = pos;
+                SecondTask.fragmentItem = model.getFragment();
             }
         });
 
