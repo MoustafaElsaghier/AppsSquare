@@ -61,6 +61,23 @@ public class MapTask extends AppCompatActivity implements OnMapReadyCallback {
                 }
             }
         });
+
+        mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+            @Override
+            public void onMarkerDragStart(Marker marker) {
+                marker.remove();
+            }
+
+            @Override
+            public void onMarkerDrag(Marker marker) {
+
+            }
+
+            @Override
+            public void onMarkerDragEnd(Marker marker) {
+
+            }
+        });
     }
 
     public void resetMap(View view) {
